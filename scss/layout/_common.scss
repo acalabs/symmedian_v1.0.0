@@ -1,0 +1,913 @@
+/* ---------------------------------------------------------
+ Сommon site styles
+ ---------------------------------------------------------*/
+
+
+/* transition settings */
+a, button, input[type="submit"], input[type="button"], .btn {
+  @include animate(color background opacity border-color);
+}
+
+
+/* outline disable styles */
+a, button, input, select, textarea {
+  outline: none !important;
+}
+
+
+/* main heading styles */
+h1 {
+  margin-top: 0;
+  margin-bottom: 15px;
+
+  @include media("<tablet") {
+    font-size: 26px;
+  }
+
+  @include media(">=desktop") {
+    margin-bottom: 70px;
+  }
+}
+
+/* bold-text styles */
+b {
+  font-weight: 600;
+}
+
+/* full-size background styles */
+.bg-stretch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  z-index: -1;
+}
+
+/* main container styles */
+#wrapper {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+/* general sections styles */
+section {
+  position: relative;
+}
+
+/* main informative part styles */
+main {
+
+/* Custom form styles */
+  form {
+    margin-bottom: 20px;
+
+    @include media(">=tablet") {
+      margin-bottom: 50px;
+    }
+
+    @include media(">=desktop") {
+      margin-bottom: 60px;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+
+    @include media(">=tablet") {
+      margin-bottom: 26px;
+    }
+
+    @include media(">=desktop") {
+      padding-right: 30px;
+    }
+  }
+
+  input, textarea {
+    border: 1px solid #bfc9d1 !important;
+    padding: 5px 10px;
+    font-size: 18px !important;
+    background: transparent;
+    box-shadow: none !important;
+    height: auto !important;
+    width: 100%;
+    min-height: 42px;
+
+    @include media(">=tablet") {
+      padding: 2px 20px 4px !important;
+    }
+
+    @include media(">=desktop") {
+      font-size: 25px !important;
+      min-height: 50px;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    width: 100%;
+    overflow: auto;
+    min-height: 100px;
+
+    @include media(">=tablet") {
+      padding: 2px 20px 24px !important;
+    }
+
+    @include media(">=desktop") {
+      width: calc(100% + 30px) !important;
+    }
+  }
+
+  button[type="submit"] {
+    color: $component-active-color;
+    text-shadow: 2px 3.5px 7.4px rgba(0, 0, 0, 0.11);
+    background: linear-gradient(-34deg, #83c108 0%, #83c108 21%, #b0ff18 100%);
+    padding: 3px 22px;
+    font-size: 26px;
+    font-weight: 500;
+
+    @include media("<tablet") {
+      width: 100%;
+      padding: 5px 10px;
+    }
+
+    &:hover {
+      color: $gray;
+    }
+  }
+
+  .btn {
+    border: none;
+  }
+}
+
+/* carousel styles */
+.carousel {
+	position: relative;
+
+  .mask {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+  }
+  
+  /* slideset block styles */
+  .slideset {
+    width: 99999px;
+    float: left;
+  }
+  
+  /* slide element styles */
+	.slide {
+    min-height: 100vh;
+		background-size: cover;
+		background-repeat: no-repeat;
+		width: 100vw;
+    float: left;
+    overflow: hidden;
+    position: relative;
+
+    @include media(">=tablet") {
+      min-height: 0;
+    }
+
+    @include media(">=widescreen") {
+      min-height: 100vh;
+    }
+
+    &:after {
+      position: absolute;
+      content: "";
+      bottom: 74%;
+      left: -30%;
+      letter-spacing: 0;
+      width: 130%;
+      height: 100%;
+      background: rgba($gray-base, 0.69);
+      transform: rotateZ(-20deg);
+      z-index: 4;
+
+      @include media(">=tablet") {
+        transform: rotateZ(-9.5deg);
+        width: 110%;
+        left: -10%;
+        bottom: 60%;
+      }
+
+      @include media(">=desktop") {
+        bottom: 74%;
+      }
+    }
+
+    &:before {
+      position: absolute;
+      content: "";
+      bottom: 60%;
+      right: -63%;
+      letter-spacing: 0;
+      width: 150%;
+      height: 100%;
+      background: rgba($gray-base, 0.69);
+      transform: rotateZ(32deg);
+      z-index: 5;
+
+      @include media(">=tablet") {
+        bottom: 92%;
+        right: -15%;
+        width: 115%;
+        transform: rotateZ(20deg);
+      }
+    }
+	}
+
+	.slide-content {
+		color: $component-active-color;
+    padding: 250px 20px 60px 0;
+
+		@include media(">=desktop") {
+			padding: 348px 207px 92px 0;
+		}
+
+    @include media(">=widescreen") {
+      padding: 70vh 20vw 10vh 0;
+    }
+	}
+  
+  /* section title holders settings */
+	.subtitle-holder {
+    text-align: center;
+		vertical-align: top;
+		display: inline-block;
+    padding: 5px 12px 7px 13px;
+    line-height: 1.1;
+	}
+
+  .title-holder {
+    text-align: left;
+    padding: 5px 5px 10px;
+    margin-left: -9999px;
+    padding-left: 9999px;
+  }
+  
+  /* Bootstrap color settings for slide elements */
+  .slide-default {
+
+    &:before {
+      background: rgba($component-active-color, 0.3);
+    }
+
+    .subtitle-holder {
+      background: rgba($component-active-color, 0.25);
+    }
+
+    .title-holder {
+      color: $text-color;
+      background: $component-active-color;
+    }
+  }
+
+  .slide-success {
+    @include slide($brand-success);
+  }
+
+  .slide-primary {
+    @include slide($brand-primary);
+  }
+
+  .slide-danger {
+    @include slide($brand-danger);
+  }
+
+  .slide-warning {
+    @include slide($brand-warning);
+  }
+
+  .slide-info {
+    @include slide($brand-info);
+  }
+
+  .slide-success {
+    @include slide($brand-success);
+  }
+
+  /* section headings styles */
+	h1, strong {
+		margin: 0;
+	}
+
+  h1 {
+    font-size: 22px;
+    font-weight: 400;
+
+    @include media(">=tablet") {
+      font-size: 34px;
+    }
+  }
+
+  strong {
+    font-size: 19px;
+    font-weight: 300;
+  }
+}
+
+/* carousel navigation styles */
+.carousel .pagination {
+  position: absolute;
+  right: 25px;
+  bottom: 15px;
+  width: auto;
+  height: auto;
+  z-index: 5;
+
+  @include media(">=desktop") {
+    bottom: 20px;
+    right: 38px;
+  }
+
+  ul {
+    @extend %listreset;
+  }
+
+  li {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 9px;
+  }
+
+  .target-default,
+  .target-primary {
+
+    &.active a,
+    a:hover {
+      background: $brand-primary;
+    }
+  }
+
+  .target-warning {
+
+    &.active a,
+    a:hover {
+      background: $brand-warning;
+    }
+  }
+
+  .target-danger {
+
+    &.active a,
+    a:hover {
+      background: $brand-danger;
+    }
+  }
+
+  .target-success {
+
+    &.active a,
+    a:hover {
+      background: $brand-success;
+    }
+  }
+
+  a {
+    display: block;
+    height: 15px;
+    width: 15px;
+    background: $body-bg;
+    border-radius: 50%;
+    @include hide-text;
+    @include animate(background);
+  }
+}
+
+/* services section styles */
+.services {
+  position: relative;
+  overflow: hidden;
+  padding: 15px 0;
+
+  @include media(">=tablet") {
+    padding: 30px 0;
+  }
+
+  @include media(">=desktop") {
+    padding: 45px 0;
+  }
+
+  .img-holder {
+    min-height: 110px;
+    margin-bottom: 12px;
+
+    img {
+      max-height: 100%;
+      width: auto;
+    }
+  }
+
+  .nav-tabs {
+    border: none;
+  }
+
+  .heading-holder {
+
+    h1 {
+      font-weight: 300;
+      font-size: 37px
+    }
+
+    b {
+      font-weight: 500;
+    }
+  }
+
+  .contact-us {
+    font-size: 18px;
+    margin-left: 4px;
+
+    @include media(">=tablet") {
+      font-size: 20px;
+    }
+  }
+}
+
+/* service item styles */
+.service {
+  margin-bottom: 15px;
+
+  @include media(">=tablet") {
+    margin-bottom: 30px;
+  }
+
+  @include media(">=desktop") {
+    margin-bottom: 86px;
+  }
+
+  .title-holder {
+    display: inline-block;
+    vertical-align: top;
+    padding: 3px 15px 5px;
+    background: rgba($component-active-color, 0.76);
+
+    h2 {
+      margin: 0;
+      font-weight: 400;
+      font-size: 22px;
+    }
+  }
+}
+
+/* Tabs styles */
+.tab-control-holder {
+  margin-bottom: 6px;
+}
+
+main .nav-tabs {
+  @extend %listreset;
+
+  li {
+    margin-bottom: 5px;
+    float: none;
+
+    @include media(">=tablet") {
+      margin-bottom: 16px;
+      float: none;
+    }
+  }
+
+  .btn {
+    padding: 6px 12px;
+    font-weight: 300;
+    font-size: 16px;
+    white-space: normal;
+
+    @include media(">=tablet") {
+      padding: 10px 20px;
+      font-size: 20px;
+    }
+
+    b {
+      font-weight: 500;
+    }
+  }
+}
+
+.tab-content {
+
+  @include media("<tablet") {
+    text-align: left
+  }
+
+  .btn {
+    font-size: 21px;
+    font-weight: 300;
+    padding: 5px 12px 5px 15px;
+  }
+
+  p {
+
+    @include media(">=desktop") {
+      margin-bottom: 35px;
+    }
+  }
+}
+
+.tab-pane {
+  color: $component-active-color;
+
+   &:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: -190%;
+    width: 100%;
+    height: 300%;
+    z-index: -1;
+
+    @include media(">=tablet") {
+      transform: rotateZ(39deg);
+      bottom: -122%;
+      right: -80%;
+      width: 150%;
+    }
+
+    @include media(">=widescreen") {
+      bottom: -194%;
+      right: -141%;
+      height: 400%;
+      width: 200%;
+    }
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 1;
+    margin-bottom: 15px;
+    font-weight: 400;
+
+    @include media(">=tablet") {
+      margin-bottom: 26px;
+      font-size: 28px;
+    }
+  }
+}
+
+.tab-text {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 23px;
+
+  @include media(">=tablet") {
+    padding: 121px 0 0 106px;
+  }
+
+  @include media(">=desktop") {
+    padding: 121px 0 4px 145px;
+    font-size: 21px;
+  }
+
+  @include media(">=widescreen") {
+    padding: 121px 0 4px 230px;
+  }
+}
+
+/* Tabs Bootstrap color settings */
+.tab-warning {
+
+  &:after {
+    background: $brand-warning;
+  }
+}
+
+.tab-danger {
+
+  &:after {
+    background: $brand-danger;
+  }
+}
+
+.tab-primary {
+
+  &:after {
+    background: $brand-primary;
+  }
+}
+
+.tab-success {
+
+  &:after {
+    background: $brand-success;
+  }
+}
+
+.tab-info {
+
+  &:after {
+    background: $brand-info;
+  }
+}
+
+/* styles for testimonials section carousel */
+.carousel-testimonials {
+  position: relative;
+
+  .mask {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .slideset {
+    float: left;
+    width: 99999px;
+  }
+
+  .slide {
+    float: left;
+  }
+
+  .btn-prev,
+  .btn-next {
+    position: absolute;
+    width: auto;
+    top: 44%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    color: $component-active-color;
+    opacity: 0.5;
+    @include animate(opacity);
+
+    @include media(">=desktop") {
+      font-size: 78px;
+    }
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  .btn-prev {
+    left: 0;
+  }
+
+  .btn-next {
+    right: 0;
+  }
+}
+
+/* base testimonials section styles */
+.testimonials {
+  color: $component-active-color;
+  padding: 30px 0;
+
+  @include media(">=widescreen") {
+    min-height: 50vh;
+  }
+
+  .title-holder {
+    display: inline-block;
+    vertical-align: top;
+    background: rgba($component-active-color, 0.71);
+    padding: 3px 10px;
+    color: $gray-base;
+
+    h2 {
+      margin: 0;
+      font-weight: 400;
+      font-size: 27px;
+    }
+  }
+
+  blockquote {
+    border: none;
+    font-size: 20px;
+    font-style: italic;
+    max-width: 250px;
+    margin: 0 auto;
+    padding: 30px 0;
+
+    @include media(">=tablet") {
+      max-width: 630px;
+      font-size: 28px;
+      margin-bottom: 8px;
+      line-height: 1.2
+    }
+  }
+
+  .clients-logo {
+    margin-bottom: 20px;
+
+    @include media(">=desktop") {
+      margin-bottom: 56px;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+/* message section styles */
+.message {
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 15px 0 30px;
+
+  @include media(">=tablet") {
+    padding: 30px 0;
+  }
+
+  @include media(">=desktop") {
+    padding: 59px 0 50px;
+  }
+
+  @include media(">=widescreen") {
+    min-height: 50vh;
+  }
+
+  &:after {
+    position: absolute;
+    content: "";
+    width: 75%;
+    height: 100%;
+    background-image: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.93) 51%, $component-active-color 79%, $component-active-color 100%);
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  .title-holder {
+    position: relative;
+    z-index: 5;
+    display: inline-block;
+    vertical-align: top;
+    background: rgba($gray, 0.71);
+    padding: 3px 10px;
+    color: $component-active-color;
+    margin-bottom: 31px;
+
+    h2 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 300;
+    }
+  }
+
+  blockquote {
+    position: relative;
+    z-index: 10;
+    border: none;
+    font-size: 18px;
+    text-align: right;
+
+    @include media(">=tablet") {
+      text-align: left;
+      font-size: 23px;
+      font-weight: 300;
+      line-height: 1.4;
+      margin-bottom: 22px;
+      padding: 0 0 1px 0;
+    }
+
+    p {
+
+      @include media(">=desktop") {
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  cite { 
+    font-style: normal;
+    font-weight: 500;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+
+    @include media(">=desktop") {
+      position: absolute;
+      width: auto;
+      bottom: -60px;
+      right: 0;
+    }
+
+    span {
+      display: block;
+      margin-bottom: 12px;
+
+      @include media(">=desktop") {
+        margin-bottom: 32px;
+      }
+    }
+
+    img {
+      transform: translateY(40%);
+    }
+  }
+}
+
+/* contacts section styles */
+.contacts {
+  font-size: 18px;
+  padding: 15px 0;
+
+  @include media(">=tablet") {
+    font-size: 24px;
+    padding: 30px 0;
+  }
+
+  @include media(">=desktop") {
+    padding: 50px 0;
+  }
+
+  .container {
+    position: relative;
+
+    &:before {
+      position: absolute;
+      display: block;
+      right: -30px;
+      top: -20px;
+      z-index: -1;
+      height: 100px;
+      width: 30%;
+      content: "";
+      background-image: url(../images/bg-form.svg);
+      background-repeat: no-repeat;
+
+      @include media(">=desktop") {
+        height: 369px;
+        width: 66%;
+        right: -234px;
+        top: 68px;
+      }
+
+      @include media(">=widescreen") {
+        right: -255px;
+      }
+    }
+  }
+
+  .title {
+    font-weight: 300;
+    display: block;
+    line-height: 1.1;
+    font-size: 36px;
+    margin-bottom: 33px;
+
+    @include media(">=tablet") {
+      font-size: 46px;
+    }
+  }
+
+  .title-holder {
+    background: $brand-success;
+    display: inline-block;
+    vertical-align: top;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+
+    @include media(">=desktop") {
+      margin-bottom: 29px;
+    }
+
+    h2 {
+      color: $component-active-color;
+      margin: 0;
+      font-weight: 300;
+      font-size: 28px;
+    }
+  }
+
+  form {
+    font-weight: 400;
+    font-size: 18px;
+
+    @include media(">=tablet") {
+      font-size: 28px;
+    }
+
+    p {
+      margin-bottom: 15px;
+
+      @include media(">=tablet") {
+        margin-bottom: 37px;
+      }
+    }
+  }
+
+  .phone {
+    margin-bottom: 24px;
+    display: inline-block;
+    line-height: 1.1;
+  }
+
+  address {
+    margin-bottom: 9px;
+    line-height: 1.12;
+    font-size: 23px;
+  }
+}

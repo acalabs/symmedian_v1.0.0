@@ -1,0 +1,29 @@
+/* footer styles */
+#footer {
+	border-top: 1px solid $gray;
+	padding: 20px 0;
+}
+
+footer ul {
+
+	@extend %listreset;
+	line-height: 1.1;
+
+	li {
+
+		@include media("<tablet") {
+			margin-bottom: 10px;
+		}
+
+		@include media(">=tablet") {
+			display: inline-block;
+			vertical-align: top;
+			margin: 0 22px;
+		}
+	}
+
+	a {
+		font-size: 19px;
+		font-weight: 300;
+	}
+}
